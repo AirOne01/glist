@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "glist",
   "version": "${version}",
 
   "name": "Glist",
@@ -12,13 +12,16 @@
     "sources": "https://github.com/AirOne01/glist"
   },
 
-  "license": "GPLv3.0",
+  "license": "GPL-3.0",
   "icon": "assets/glist/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "glist.GlistKt::init"
+      {
+        "adapter": "kotlin",
+        "value": "glist.Glist"
+      }
     ]
   },
   "mixins": [

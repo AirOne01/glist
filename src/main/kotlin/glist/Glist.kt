@@ -1,13 +1,27 @@
 package glist
 
-// For support join https://discord.gg/v6v4pMv
+import glist.block.Morph
+import net.fabricmc.api.ModInitializer
+import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings
+import net.minecraft.block.Block
+import net.minecraft.block.Material
+import net.minecraft.item.BlockItem
+import net.minecraft.item.ItemGroup
+import net.minecraft.util.Identifier
+import net.minecraft.util.registry.Registry
 
-@Suppress("unused")
-fun init() {
-    // This code runs as soon as Minecraft is in a mod-load-ready state.
-    // However, some things (like resources) may still be uninitialized.
-    // Proceed with mild caution.
 
-    println("Hello Fabric world!")
+class Glist : ModInitializer {
+    private var blockMorph: Block = Morph(FabricBlockSettings.of(Material.STONE))
+
+    @Override
+    override fun onInitialize() {
+        Registry.register(Registry.BLOCK, Identifier("glist", "morph"), blockMorph)
+        Registry.register(
+            Registry.ITEM,
+            Identifier("tutorial", "example_block"),
+            BlockItem(blockMorph, FabricItemSettings().group(ItemGroup.MISC))
+        )
+    }
 }
-
