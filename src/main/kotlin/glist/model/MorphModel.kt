@@ -29,13 +29,29 @@ import java.util.function.Supplier
 class MorphModel : UnbakedModel, BakedModel, FabricBakedModel {
     private val spriteIDs: MutableCollection<SpriteIdentifier> = mutableListOf(
         SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/furnace_front_on")),
-        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/furnace_top"))
+        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/furnace_top")),
+        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/sponge")),
+        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/acacia_planks")),
+        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/dirt")),
+        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/iron_block")),
+        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/diamond_block")),
+        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/gold_block")),
+        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/redstone_block")),
+        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/glass")),
+        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/white_wool")),
+        SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier("minecraft:block/oak_planks")),
     )
     private val sprites = arrayOfNulls<Sprite>(2)
 
     private var mesh: Mesh? = null
 
     @Override
+    /**
+     * Tell the game which textures are needed for this model.
+     *
+     * @see net.minecraft.client.render.model.UnbakedModel.getModelDependencies
+     * @return A collection of textures identifiers that are needed for this model.
+     */
     override fun getModelDependencies(): MutableCollection<Identifier> {
         return Collections.emptyList()
     }
@@ -57,7 +73,7 @@ class MorphModel : UnbakedModel, BakedModel, FabricBakedModel {
     ): BakedModel {
         // Get the sprites
         sprites.forEachIndexed { index, _ ->
-            sprites[index] = textureGetter?.apply(spriteIDs.elementAt(index))
+            sprites[index] = textureGetter?.apply(spriteIDs.random())
         }
         // Build the mesh using the rendered API
         val renderer: Renderer? = RendererAccess.INSTANCE.renderer
