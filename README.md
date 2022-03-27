@@ -5,3 +5,12 @@ Glist is a Fabric mod that aims to provide a client mod for servers, to send cus
 Basically modding without mods, on the go, with server-specific configurations ("mods").
 
 ## [![Gradle build](https://github.com/AirOne01/glist/actions/workflows/build.yml/badge.svg)](https://github.com/AirOne01/glist/actions/workflows/build.yml)
+
+## To do
+
+* [ ] Dynamic texture handling
+* [ ] Blocks
+* [ ] Items
+* [ ] Inventories
+* [ ] Scripts (lua?)
+* [ ] More ideas
