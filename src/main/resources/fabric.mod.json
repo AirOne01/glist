@@ -17,6 +17,11 @@
 
   "environment": "*",
   "entrypoints": {
+    "client": [
+      {
+        "value": "glist.GlistClient"
+      }
+    ],
     "main": [
       {
         "adapter": "kotlin",
