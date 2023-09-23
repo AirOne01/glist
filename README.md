@@ -1,3 +1,7 @@
+> [!IMPORTANT]  
+> **This project has been abandonned**.
+> This mod (or at least what it was supposed to be) is being ported to ![deco](https://github.com/AirOne01/deco) and ![data-api](https://github.com/AirOne01/data-api)
+
 # <img src="./logo.png" width="500">
 **Hi, that's Glist, more flexibility for Minecraft servers**
 
